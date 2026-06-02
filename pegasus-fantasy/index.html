@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="ja">
 <head>
   <meta charset="utf-8">
@@ -19,6 +19,23 @@
 
   <!-- Google Analytics tag can be pasted here. -->
 
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y8CYTK012N"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-Y8CYTK012N');
+
+    document.addEventListener('click', function(event) {
+      var link = event.target.closest('[data-ga-event="music_link_click"]');
+      if (!link || typeof gtag !== 'function') return;
+      gtag('event', 'music_link_click', {
+        platform: link.getAttribute('data-music-platform') || '',
+        link_url: link.href,
+        link_text: (link.textContent || '').trim()
+      });
+    });
+  </script>
   <style>
     :root {
       color-scheme: dark;
@@ -219,7 +236,7 @@
         <p class="tagline">AI cover </p>
         <h1>ペガサス幻想 / 聖闘士星矢</h1>
         <p class="catch-copy">重厚でエピックなAIハードロックアレンジでカバーしました。</p>
-        <a class="youtube-button " href="https://youtu.be/rtbQzojtegk?si=vB3iIEV8OB1VyUEw" target="_blank" rel="noopener noreferrer"><span class="play-mark" aria-hidden="true">▶</span><span>YouTube</span></a>
+        <a class="youtube-button " data-ga-event="music_link_click" data-music-platform="YouTube" href="https://youtu.be/rtbQzojtegk?si=vB3iIEV8OB1VyUEw" target="_blank" rel="noopener noreferrer"><span class="play-mark" aria-hidden="true">▶</span><span>YouTube</span></a>
         <p class="description">原曲が持つ
 ・燃え上がる闘志
 ・友情と覚悟

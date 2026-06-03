@@ -24,7 +24,11 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-5E7ZHBOYEH');
+    gtag('config', 'G-5E7ZHBOYEH', {
+      send_page_view: true,
+      transport_type: 'beacon',
+      debug_mode: true
+    });
 
     document.addEventListener('click', function(event) {
       var link = event.target.closest('[data-ga-event="music_link_click"]');
